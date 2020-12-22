@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 共通関数
@@ -8,15 +9,15 @@ using UnityEngine;
 public class GlobalProc
 {
     /// <summary>
-    /// スライドアウト後の処理用デリゲード
+    /// コールバック用デリゲード
     /// </summary>
-    public delegate void AfterSlideOut();
+    public delegate void Callback();
 
     /// <summary>
     /// スライドアウト
     /// </summary>
     /// <returns></returns>
-    public IEnumerator SlideOutPanel(GameObject pnlWrap, AfterSlideOut afterSlideOut)
+    public IEnumerator SlideOutPanel(GameObject pnlWrap, Callback callback)
     {
         //開始時間
         float startTime = Time.time;
@@ -29,7 +30,61 @@ public class GlobalProc
         }
 
         //スライドアウト後の処理
-        afterSlideOut();
+        callback();
     }
 
+    /// <summary>
+    /// 画面全体メッセージ表示
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator DispFullMessage(string[] msgList, Text txtMessageArea, GameObject clickIcon, Callback callback)
+    {
+        string[] str;
+
+        //ウエイト
+        yield return new WaitForSecondsRealtime(GlobalConst.MESSAGE_INIT_WAIT);
+
+        //存在するメッセージ分だけループする
+        foreach (var line in msgList)
+        {
+            //改行で配列に格納
+            str = line.Replace("\n", ",").Split(',');
+
+            //改行ごとに処理
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i != 0)
+                {
+                    //マウス入力待ちではない場合は改行してテキストを追加
+                    txtMessageArea.text += "\n" + str[i];
+                }
+                else
+                {
+                    //マウス入力後の場合はテキストを更新
+                    txtMessageArea.text = str[i];
+                }
+
+                //配列の最後だったらマウス入力待ちをする
+                if (str.Length - 1 == i)
+                {
+                    //マウスクリックアイコンの表示
+                    yield return new WaitForSecondsRealtime(GlobalConst.MESSAGE_WAIT);
+                    clickIcon.SetActive(true);
+
+                    yield return new WaitUntil(() => Input.GetMouseButton(0));
+                    clickIcon.SetActive(false);
+                }
+                else
+                {
+                    //マウス入力待ちしない場合はウエイト
+                    yield return new WaitForSecondsRealtime(GlobalConst.MESSAGE_WAIT);
+                }
+            }
+
+            yield return new WaitUntil(() => Input.GetMouseButton(0));
+        }
+
+        //メッセージ表示後の処理
+        callback();
+    }
 }
