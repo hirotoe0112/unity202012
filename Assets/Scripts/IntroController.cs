@@ -24,8 +24,9 @@ public class IntroController : MonoBehaviour
     [Multiline(10)]
     private string[] arrIntro;
 
-    private string[] str;
-
+    /// <summary>
+    /// クリックを促すアイコン
+    /// </summary>
     GameObject clickIcon;
 
     // Start is called before the first frame update
