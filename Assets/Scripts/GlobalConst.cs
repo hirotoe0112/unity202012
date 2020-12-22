@@ -19,6 +19,18 @@ public class GlobalConst
     public const float BG_SLIDE_UNIT = 0.1f;
     #endregion
 
+    #region メッセージ表示関連
+    /// <summary>
+    /// メッセージ表示初期ウエイト
+    /// </summary>
+    public const float MESSAGE_INIT_WAIT = 1.0f;
+
+    /// <summary>
+    /// メッセージ表示途中ウエイト
+    /// </summary>
+    public const float MESSAGE_WAIT = 0.7f;
+    #endregion
+
     #region シーン名
     /// <summary>
     /// イントロダクション画面
@@ -29,5 +41,10 @@ public class GlobalConst
     /// ランキング画面
     /// </summary>
     public const string RANKING_SCENE = "RankingScene";
+
+    /// <summary>
+    /// メイン画面
+    /// </summary>
+    public const string MAIN_SCENE = "MainScene";
     #endregion
 }
