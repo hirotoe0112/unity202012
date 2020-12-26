@@ -52,6 +52,11 @@ public class GlobalConst
 
     #region シーン名
     /// <summary>
+    /// タイトル画面
+    /// </summary>
+    public const string TITLE_SCENE = "TitleScene";
+
+    /// <summary>
     /// イントロダクション画面
     /// </summary>
     public const string INTRO_SCENE = "IntroScene";
