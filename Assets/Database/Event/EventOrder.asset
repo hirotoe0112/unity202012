@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: EventOrder
   m_EditorClassIdentifier: 
   eventManager:
-  - {fileID: 11400000, guid: 36a7ecc9c03384a45ae345278087fbe4, type: 2}
+  - {fileID: 11400000, guid: f7ca786f65320144db51a1479dceb834, type: 2}
+  - {fileID: 11400000, guid: 9ef456dd64e2028428ca2d251862e7fa, type: 2}
   - {fileID: 11400000, guid: 1bc735578d79ff7458fd4663d7de23ce, type: 2}
-  - {fileID: 11400000, guid: cd2e8663c7256f14284882b887229ce7, type: 2}
   - {fileID: 11400000, guid: 2fe3f5248571f384eb7d6b29e2f4a77a, type: 2}
   - {fileID: 11400000, guid: cd2e8663c7256f14284882b887229ce7, type: 2}
-  - {fileID: 11400000, guid: 4568bfd9861ea28468830af6a54c5cb9, type: 2}
+  - {fileID: 11400000, guid: ee13c38e02de17e4a88e3fdf1c0b4719, type: 2}
+  - {fileID: 11400000, guid: f007b35541408a24397ca39d7d52d1ce, type: 2}
+  - {fileID: 11400000, guid: 36a7ecc9c03384a45ae345278087fbe4, type: 2}

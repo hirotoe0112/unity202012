@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Security.Cryptography;
+using System;
 
 /// <summary>
 /// 共通関数
@@ -116,6 +118,55 @@ public class GlobalProc
         audioSource.clip = audioClip;
         audioSource.Play();
         yield return null;
+    }
+
+    /// <summary>
+    /// シード値生成
+    /// </summary>
+    /// <returns></returns>
+    private int CreateSeedValue()
+    {
+        byte[] bs = new byte[4];
+        RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+        rng.GetBytes(bs);
+        rng.Dispose();
+
+        return BitConverter.ToInt32(bs, 0);
+    }
+
+    /// <summary>
+    /// 指定した範囲で乱数生成
+    /// </summary>
+    /// <param name="fromValue"></param>
+    /// <param name="toValue"></param>
+    /// <returns></returns>
+    public int CreateRandomValue(int fromValue,int toValue)
+    {
+        int seed = CreateSeedValue();
+
+        System.Random random = new System.Random(seed);
+        return random.Next(fromValue, toValue);
+    }
+
+    /// <summary>
+    /// リストから要素削除
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="removeIndex"></param>
+    /// <returns></returns>
+    public List<T> RemoveItem<T>(List<T> list, int removeIndex)
+    {
+        int index = 0;
+        foreach (T item in list.ToArray())
+        {
+            if (index == removeIndex)
+            {
+                list.Remove(item);
+            }
+            index++;
+        }
+        return list;
     }
 
 }
