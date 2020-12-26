@@ -47,4 +47,17 @@ public class GlobalConst
     /// </summary>
     public const string MAIN_SCENE = "MainScene";
     #endregion
+
+    public const int PLAY_COUNT = 5;
+
+    /// <summary>
+    /// 選択肢
+    /// </summary>
+    public enum Selection
+    {
+        INIT,
+        OPEN,
+        REJECT,
+        MOREHINT
+    }
 }

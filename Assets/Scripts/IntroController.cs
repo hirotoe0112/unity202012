@@ -27,7 +27,8 @@ public class IntroController : MonoBehaviour
     /// <summary>
     /// クリックを促すアイコン
     /// </summary>
-    GameObject clickIcon;
+    [SerializeField]
+    private GameObject clickIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,6 @@ public class IntroController : MonoBehaviour
         globalProc = new GlobalProc();
 
         //クリックアイコン非表示
-        clickIcon = GameObject.Find("clickIcon");
         clickIcon.SetActive(false);
 
         //イントロ後、メイン画面を表示

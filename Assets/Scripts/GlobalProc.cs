@@ -17,7 +17,7 @@ public class GlobalProc
     /// スライドアウト
     /// </summary>
     /// <returns></returns>
-    public IEnumerator SlideOutPanel(GameObject pnlWrap, Callback callback)
+    public IEnumerator SlideOutPanel(GameObject pnlWrap, Callback callback = null)
     {
         //開始時間
         float startTime = Time.time;
@@ -30,14 +30,17 @@ public class GlobalProc
         }
 
         //スライドアウト後の処理
-        callback();
+        if (callback != null)
+        {
+            callback();
+        }
     }
 
     /// <summary>
     /// 画面全体メッセージ表示
     /// </summary>
     /// <returns></returns>
-    public IEnumerator DispFullMessage(string[] msgList, Text txtMessageArea, GameObject clickIcon, Callback callback)
+    public IEnumerator DispFullMessage(string[] msgList, Text txtMessageArea, GameObject clickIcon, Callback callback = null)
     {
         string[] str;
 
@@ -85,6 +88,34 @@ public class GlobalProc
         }
 
         //メッセージ表示後の処理
-        callback();
+        if(callback != null)
+        {
+            callback();
+        }
     }
+
+    /// <summary>
+    /// 背景画像設定
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator SetImage(Sprite sprite, Image imgBackGround, Callback callback = null)
+    {
+        imgBackGround.sprite = sprite;
+        yield return null;
+    }
+
+    /// <summary>
+    /// 効果音再生
+    /// </summary>
+    /// <param name="audioClip"></param>
+    /// <param name="audioSource"></param>
+    /// <param name="callback"></param>
+    /// <returns></returns>
+    public IEnumerator PlaySound(AudioClip audioClip, AudioSource audioSource,Callback callback = null)
+    {
+        audioSource.clip = audioClip;
+        audioSource.Play();
+        yield return null;
+    }
+
 }
