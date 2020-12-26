@@ -16,7 +16,7 @@ public class GlobalConst
     /// <summary>
     /// 1フレームごとのスライド距離
     /// </summary>
-    public const float BG_SLIDE_UNIT = 0.1f;
+    public const float BG_SLIDE_UNIT = 1.1f;
     #endregion
 
     #region メッセージ表示関連
@@ -30,6 +30,25 @@ public class GlobalConst
     /// </summary>
     public const float MESSAGE_WAIT = 0.7f;
     #endregion
+
+    /// <summary>
+    /// 選択肢イベントのウエイト
+    /// </summary>
+    public const float SELECTION_WAIT = 0.5f;
+
+    /// <summary>
+    /// 得点表示のウエイト
+    /// </summary>
+    public const float SCORE_WAIT = 1.0f;
+
+    /// <summary>
+    /// 選択肢イベント終了時のウエイト
+    /// </summary>
+    public const float SELECTION_FINISH_WAIT = 1.5f;
+
+    public const string PLUS_MARK = "+";
+
+    public const string MINUS_MARK = "-";
 
     #region シーン名
     /// <summary>

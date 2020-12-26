@@ -11,8 +11,27 @@ public class VisitorDataBase : ScriptableObject
     [SerializeField]
     private List<Visitor> visitorDataBase = new List<Visitor>();
 
+    //正解時SE
+    [SerializeField]
+    private AudioClip correctSound;
+
+    //不正解時SE
+    [SerializeField]
+    private AudioClip incorrectSound;
+
     public List<Visitor> GetVisitors()
     {
-        return visitorDataBase;
+        var list = new List<Visitor>(visitorDataBase);
+        return list;
+    }
+
+    public AudioClip GetCorrectSound()
+    {
+        return correctSound;
+    }
+
+    public AudioClip GetIncorrectSound()
+    {
+        return incorrectSound;
     }
 }

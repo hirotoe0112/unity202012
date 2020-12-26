@@ -35,18 +35,18 @@ public class Visitor : ScriptableObject
     private string[] hints = new string[6];
 
     /// <summary>
-    /// 正解時ショートストーリー
+    /// 開けた時のショートストーリー
     /// </summary>
     [SerializeField]
     [Multiline(10)]
-    private string correctStory;
+    private string openStory;
 
     /// <summary>
-    /// 不正解時ショートストーリー
+    /// 開けない時のショートストーリー
     /// </summary>
     [SerializeField]
     [Multiline(10)]
-    private string incorrectStory;
+    private string rejectStory;
 
     public KindOfAnswer GetKindOfAnswer()
     {
@@ -58,13 +58,15 @@ public class Visitor : ScriptableObject
         return hints;
     }
 
-    public string GetCorrectStory()
+    public string GetStory(GlobalConst.Selection selection)
     {
-        return correctStory;
-    }
-
-    public string GetIncorrectStory()
-    {
-        return incorrectStory;
+        if (selection == GlobalConst.Selection.OPEN)
+        {
+            return openStory;
+        }
+        else
+        {
+            return rejectStory;
+        }
     }
 }

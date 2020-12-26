@@ -14,3 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visitorDataBase:
   - {fileID: 11400000, guid: ff0f6013a510f7c4bb059c2f3933964f, type: 2}
+  - {fileID: 11400000, guid: e302348b26fd8414dbfe4243688c5416, type: 2}
+  - {fileID: 11400000, guid: d76bef4a08211bc45b3ada0b64ed207b, type: 2}
+  - {fileID: 11400000, guid: 2902ecc4c7828044eadab45213648525, type: 2}
+  - {fileID: 11400000, guid: 6fd08beb4782a7645811f11dd4af9683, type: 2}
+  - {fileID: 11400000, guid: f0fafd074c7adc84bbfa7c71beda7c44, type: 2}
+  - {fileID: 11400000, guid: 627ac9cd8fa51654cb421a3b2b86a4be, type: 2}
+  - {fileID: 11400000, guid: 7c91f817f766a374482b833211a719d7, type: 2}
+  - {fileID: 11400000, guid: 0c2d2ef7db1e1df4aae666b5d5406565, type: 2}
+  - {fileID: 11400000, guid: 4283676a5773d5a4bb7cf9a17d113d84, type: 2}
+  correctSound: {fileID: 8300000, guid: 41d35583b3dae94409d2e764ad7f6169, type: 3}
+  incorrectSound: {fileID: 8300000, guid: b1e2ea91fe4d09a42a3e98ea2551de48, type: 3}
