@@ -15,4 +15,4 @@ MonoBehaviour:
   kindOfEvent: 3
   message: 
   sprite: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 41d35583b3dae94409d2e764ad7f6169, type: 3}
+  audioClip: {fileID: 8300000, guid: 88340deed6aabf14ab4689c45aa8a283, type: 3}
