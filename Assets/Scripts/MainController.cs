@@ -96,6 +96,12 @@ public class MainController : MonoBehaviour
     private AudioSource audioSource;
 
     /// <summary>
+    /// ショートストーリー用BGM
+    /// </summary>
+    [SerializeField]
+    private AudioSource storyAudio;
+
+    /// <summary>
     /// 選択肢をクリックしたかどうか
     /// </summary>
     private bool isSelected;
@@ -332,8 +338,14 @@ public class MainController : MonoBehaviour
         //ショートストーリーパネルを表示
         pnlStory.SetActive(true);
 
+        //BGMを再生
+        storyAudio.Play();
+
         //メッセージを表示
         yield return StartCoroutine(globalProc.DispFullMessage(new string[] { message }, txtStory, clickIcon));
+
+        //BGMを停止
+        storyAudio.Stop();
     }
 
     /// <summary>
