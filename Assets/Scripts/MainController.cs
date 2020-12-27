@@ -111,17 +111,8 @@ public class MainController : MonoBehaviour
         //共通処理クラスの生成
         globalProc = new GlobalProc();
 
-        //クリックアイコン非表示
-        clickIcon.SetActive(false);
-
-        //選択肢パネル非表示
-        pnlSelection.SetActive(false);
-
-        //ショートストーリーパネル非表示
-        pnlStory.SetActive(false);
-
-        //得点パネル非表示
-        pnlScore.SetActive(false);
+        //パネルを初期化
+        PanelInit();
 
         //得点初期化
         StaticParam.totalScore = 0;
@@ -222,7 +213,7 @@ public class MainController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator Selection(Visitor visitor)
     {
-        int tmpScore = 0;
+        int tmpScore = 1500;
         string tmpMark;
         AudioClip tmpAudio;
 
@@ -279,10 +270,10 @@ public class MainController : MonoBehaviour
                     (selection == GlobalConst.Selection.REJECT && visitor.GetKindOfAnswer()==Visitor.KindOfAnswer.Reject))
                 {
                     //正解時
-                    tmpScore = 1500;
                     tmpMark = GlobalConst.PLUS_MARK;
                     tmpAudio = visitorDataBase.GetCorrectSound();
                     StaticParam.totalScore += tmpScore;
+                    txtScore.color = new Color(0.026f, 0.744f, 0.792f, 1.000f);
                 }
                 else
                 {
@@ -291,6 +282,7 @@ public class MainController : MonoBehaviour
                     tmpMark = GlobalConst.MINUS_MARK;
                     tmpAudio = visitorDataBase.GetIncorrectSound();
                     StaticParam.totalScore += tmpScore;
+                    txtScore.color = new Color(0.792f, 0.026f, 0.026f, 1.000f);
                 }
 
                 //得点をセット
@@ -322,6 +314,9 @@ public class MainController : MonoBehaviour
             }
             else
             {
+                //得点を減点
+                tmpScore -= (i + 1) * 100;
+
                 //もっとよく見るを選択した場合は次のヒントへ
             }
         }
